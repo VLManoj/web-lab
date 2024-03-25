@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Frequency</title>
+</head>
+<body>
+    <h1>Character Frequency </h1>
+    
+    <div id="frequencyListing"></div>
+
+    <script>
+        function charFreq(str) {
+            const frequency = {};
+            for (let char of str) {
+                if (frequency[char]) {
+                    frequency[char]++;
+                } else {
+                    frequency[char] = 1;
+                }
+            }
+            return frequency;
+        }
+
+        const inputString = "abbabcbdbabdbdbabababcbcbab";
+        const frequencyListing = charFreq(inputString);
+        const outputElement = document.getElementById("frequencyListing");
+        outputElement.textContent = JSON.stringify(frequencyListing, null, 2);
+    </script>
+</body>
+</html>

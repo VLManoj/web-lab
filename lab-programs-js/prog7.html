@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Card Translation</title>
+</head>
+<body>
+    <h1>Christmas Card Translation</h1>
+    <div id="englishCard">
+        <h2>English Card:</h2>
+        <p>Merry Christmas and Happy New Year!</p>
+    </div>
+    <div id="swedishCard">
+        <h2>Swedish Translation:</h2>
+        <p id="translatedText"></p>
+    </div>
+
+    <script>
+        // Bilingual lexicon
+        const lexicon = {
+            "merry": "god",
+            "christmas": "jul",
+            "and": "och",
+            "happy": "gott",
+            "new": "nytt",
+            "year!": "år"
+        };
+
+        function translateText(text) {
+            const words = text.split(" ");
+            const translatedWords = words.map(word => lexicon[word.toLowerCase()] || word);
+            return translatedWords.join(" ");
+        }
+        const englishText = "Merry Christmas and Happy New Year!";
+        const translatedText = translateText(englishText);
+        document.getElementById("translatedText").textContent = translatedText;
+    </script>
+</body>
+</html>

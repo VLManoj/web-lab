@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Checker</title>
+</head>
+<body>
+
+<p id="result"></p>
+
+<script>
+    function isVowel(character) {
+        var lowerCaseChar = character.toLowerCase();
+        
+        if (lowerCaseChar === 'a' || lowerCaseChar === 'e' || lowerCaseChar === 'i' || lowerCaseChar === 'o' || lowerCaseChar === 'u') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    var resultElement = document.getElementById('result');
+    resultElement.textContent = "The Character is vowel : " + isVowel('a');
+</script>
+
+</body>
+</html>

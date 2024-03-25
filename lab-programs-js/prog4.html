@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rövarspråket Translator</title>
+</head>
+<body>
+
+<p id="translatedText"></p>
+
+<script>
+    function isConsonant(character) {
+        // Regular expression to match consonants (not including vowels)
+        return /^[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]$/.test(character);
+    }
+
+    function translate(text) {
+        var translatedText = "";
+
+        for (var i = 0; i < text.length; i++) {
+            if (isConsonant(text[i])) {
+                translatedText += text[i] + "o" + text[i];
+            } else {
+                translatedText += text[i];
+            }
+        }
+
+        return translatedText;
+    }
+
+    var translatedTextElement = document.getElementById('translatedText');
+    translatedTextElement.textContent = translate("this is fun"); 
+</script>
+
+</body>
+</html>

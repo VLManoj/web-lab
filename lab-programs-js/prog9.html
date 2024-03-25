@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Long Words</title>
+</head>
+<body>
+    <script>
+        function filterLongWords(words, i) {
+            return words.filter(word => word.length > i);
+        }
+        const words = ["apple", "banana", "orange", "strawberry"];
+        const filteredWords = filterLongWords(words, 6);
+        document.write("<p>Words longer than 6 characters: " + filteredWords.join(", ") + "</p>");
+    </script>
+</body>
+</html>

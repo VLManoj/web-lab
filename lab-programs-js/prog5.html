@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prog5</title>
+</head>
+<body>
+    
+    <p>Sum: <span id="sumOutput"></span></p>
+    <p>Multiply: <span id="multiplyOutput"></span></p>
+
+    <script>
+        function sum(numbers) {
+            let total = 0;
+            for (let i = 0; i < numbers.length; i++) {
+                total += numbers[i];
+            }
+            return total;
+        }
+
+        function multiply(numbers) {
+            let result = 1;
+            for (let i = 0; i < numbers.length; i++) {
+                result *= numbers[i];
+            }
+            return result;
+        }
+        const numbers = [1, 2, 3, 4];
+        const sumResult = sum(numbers);
+        const multiplyResult = multiply(numbers);
+        document.getElementById("sumOutput").textContent = sumResult;
+        document.getElementById("multiplyOutput").textContent = multiplyResult;
+    </script>
+</body>
+</html>

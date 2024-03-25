@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Longest Word</title>
+</head>
+<body>
+    <h1>Find Longest Word Example</h1>
+    
+    <script>
+        function findLongestWord(words) {
+            let longestLength = 0;
+
+            for (let i = 0; i < words.length; i++) {
+                const wordLength = words[i].length;
+                if (wordLength > longestLength) {
+                    longestLength = wordLength;
+                }
+            }
+
+            return longestLength;
+        }
+        const words = ["apple", "banana", "orange", "strawberry"];
+        const longestWordLength = findLongestWord(words);
+        document.write("<p>Length of the longest word: " + longestWordLength + "</p>");
+    </script>
+</body>
+</html>

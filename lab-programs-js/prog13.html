@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator</title>
+</head>
+<body>
+    <h1>Random Number Generator</h1>
+    <script>
+        const count = parseInt(prompt("How many random numbers do you wish to generate?"));
+
+        if (isNaN(count) || count <= 0) {
+            document.write("<p>Invalid input. Please enter a valid positive number.</p>");
+        } else {
+            const numbers = [];
+            let sum = 0;
+            for (let i = 0; i < count; i++) {
+                const randomNumber = Math.floor(Math.random() * 100) + 1; 
+                numbers.push(randomNumber);
+                sum += randomNumber;
+            }
+            const average = sum / count;
+            document.write("<p>Generated Numbers: " + numbers.join(", ") + "</p>");
+            document.write("<p>Average: " + average.toFixed(2) + "</p>");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+        <label for="confirmPassword">Confirm Password:</label><br>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+        <label for="yearOfBirth">Year of Birth (YYYY):</label><br>
+        <input type="number" id="yearOfBirth" name="yearOfBirth" min="1900" max="2000" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <input type="checkbox" id="agree" name="agree" required>
+        <label for="agree">I agree to the terms and conditions</label><br>
+        <input type="submit" value="Register">
+    </form>
+
+    <div id="errorMessages" class="error"></div>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const yearOfBirth = document.getElementById('yearOfBirth').value;
+            const email = document.getElementById('email').value;
+            const agree = document.getElementById('agree').checked;
+
+            const errorMessages = [];
+
+            if (name.trim() === '') {
+                errorMessages.push("Name cannot be empty");
+            }
+
+            if (username.trim() === '') {
+                errorMessages.push("Username cannot be empty");
+            }
+
+            if (password.trim() === '') {
+                errorMessages.push("Password cannot be empty");
+            }
+
+            if (confirmPassword.trim() === '') {
+                errorMessages.push("Confirm Password cannot be empty");
+            }
+
+            if (password !== confirmPassword) {
+                errorMessages.push("Passwords do not match");
+            }
+
+            if (yearOfBirth.trim() === '' || isNaN(yearOfBirth) || yearOfBirth.length !== 4 || yearOfBirth < 1900 || yearOfBirth > 2000) {
+                errorMessages.push("Year of Birth must be between 1900 and 2000 and must be four digits only");
+            }
+
+            if (email.trim() === '' || !isValidEmail(email)) {
+                errorMessages.push("Invalid email address");
+            }
+
+            if (!agree) {
+                errorMessages.push("You must agree to the terms and conditions");
+            }
+
+            if (errorMessages.length > 0) {
+                displayErrorMessages(errorMessages);
+                return false;
+            }
+
+            return true;
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function displayErrorMessages(messages) {
+            const errorMessagesElement = document.getElementById('errorMessages');
+            errorMessagesElement.innerHTML = '';
+            messages.forEach(message => {
+                errorMessagesElement.innerHTML += "<p>" + message + "</p>";
+            });
+        }
+    </script>
+</body>
+</html>

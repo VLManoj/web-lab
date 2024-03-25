@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse String Example</title>
+</head>
+<body>
+    
+    <p>Reversed string: <span id="revOut"></span></p>
+
+    <script>
+        function reverse(str) {
+            return str.split('').reverse().join('');
+        }
+        const ip= "jag testar";
+        const reversedString = reverse(ip);
+        document.getElementById("revOut").textContent = reversedString;
+    </script>
+</body>
+</html>
